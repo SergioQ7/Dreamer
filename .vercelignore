@@ -1,0 +1,11 @@
+node_modules
+.git
+.env
+.DS_Store
+client
+server
+shared
+vite.config.ts
+tsconfig.json
+package.json
+pnpm-lock.yaml
