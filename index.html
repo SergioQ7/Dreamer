@@ -1,0 +1,528 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="DREAMER — Exclusive B2B Wholesale Portal for Miami's Premier Boutiques">
+    <title>DREAMER — Wholesale Portal</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400;1,700&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --navy: #071729;
+            --blue: #A1C1D8;
+            --gold: #C9A96E;
+            --charcoal: #1a1a2e;
+        }
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        html {
+            scroll-behavior: smooth;
+        }
+        body {
+            background: var(--navy);
+            color: white;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 300;
+            line-height: 1.8;
+        }
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            padding: 28px 40px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            background: rgba(7, 23, 41, 0.95);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid rgba(161, 193, 216, 0.1);
+        }
+        nav .logo {
+            font-weight: 700;
+            font-size: 20px;
+            letter-spacing: 2px;
+        }
+        nav .nav-links {
+            display: flex;
+            gap: 40px;
+            align-items: center;
+        }
+        nav button {
+            background: none;
+            border: none;
+            color: rgba(255, 255, 255, 0.8);
+            font-family: 'Montserrat', sans-serif;
+            font-size: 14px;
+            cursor: pointer;
+            transition: color 0.3s;
+        }
+        nav button:hover {
+            color: var(--blue);
+        }
+        .menu-toggle {
+            display: none;
+            flex-direction: column;
+            gap: 6px;
+        }
+        .menu-toggle span {
+            display: block;
+            width: 28px;
+            height: 2px;
+            background: white;
+        }
+        .hero {
+            margin-top: -80px;
+            padding-top: 80px;
+            min-height: 100vh;
+            display: flex;
+            align-items: flex-end;
+            background: linear-gradient(135deg, rgba(7,23,41,0.85) 0%, rgba(7,23,41,0.7) 100%);
+            padding-bottom: 80px;
+        }
+        .hero-content {
+            max-width: 760px;
+            padding: 0 40px;
+        }
+        .hero-content h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 96px;
+            font-weight: 700;
+            margin-bottom: 8px;
+            line-height: 1;
+        }
+        .hero-content h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 52px;
+            font-weight: 400;
+            font-style: italic;
+            color: var(--blue);
+            margin-bottom: 28px;
+        }
+        .hero-content p {
+            font-size: 15px;
+            color: rgba(255, 255, 255, 0.75);
+            max-width: 480px;
+            margin-bottom: 40px;
+            line-height: 1.7;
+        }
+        .hero-buttons {
+            display: flex;
+            gap: 16px;
+            flex-wrap: wrap;
+        }
+        .btn-luxury {
+            padding: 14px 28px;
+            background: var(--blue);
+            color: var(--navy);
+            border: none;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 600;
+            font-size: 13px;
+            letter-spacing: 0.05em;
+            cursor: pointer;
+            text-transform: uppercase;
+            transition: all 0.3s;
+        }
+        .btn-luxury:hover {
+            opacity: 0.8;
+            transform: translateY(-2px);
+        }
+        .btn-outline {
+            padding: 14px 28px;
+            background: transparent;
+            color: white;
+            border: 1px solid rgba(161, 193, 216, 0.5);
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 600;
+            font-size: 13px;
+            cursor: pointer;
+            text-transform: uppercase;
+            transition: all 0.3s;
+        }
+        .btn-outline:hover {
+            border-color: var(--blue);
+            color: var(--blue);
+        }
+        .marquee {
+            background: var(--blue);
+            color: var(--navy);
+            padding: 14px 0;
+            overflow: hidden;
+            font-weight: 600;
+            font-size: 11px;
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+        }
+        .marquee-content {
+            display: flex;
+            gap: 40px;
+            animation: scroll 30s linear infinite;
+            white-space: nowrap;
+        }
+        @keyframes scroll {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-50%); }
+        }
+        section {
+            padding: 80px 40px;
+            max-width: 1440px;
+            margin: 0 auto;
+        }
+        section.dark {
+            background: var(--charcoal);
+        }
+        .section-label {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            margin-bottom: 24px;
+            font-size: 12px;
+            font-weight: 600;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+        }
+        .section-label span:first-child {
+            width: 40px;
+            height: 1px;
+            background: var(--gold);
+        }
+        h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 56px;
+            font-weight: 700;
+            margin-bottom: 60px;
+            line-height: 1.1;
+        }
+        h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 20px;
+            font-weight: 700;
+            margin-bottom: 8px;
+        }
+        .essence-grid {
+            display: grid;
+            grid-template-columns: 1fr 1.4fr;
+            gap: 80px;
+            align-items: start;
+        }
+        .essence-image {
+            height: 600px;
+            background: linear-gradient(135deg, rgba(161,193,216,0.2), rgba(201,169,110,0.2));
+            border: 1px solid rgba(161,193,216,0.2);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 48px;
+        }
+        .collections-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 40px;
+        }
+        .collection-card {
+            overflow: hidden;
+        }
+        .collection-image {
+            width: 100%;
+            height: 400px;
+            background: linear-gradient(135deg, rgba(161,193,216,0.3), rgba(201,169,110,0.3));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            font-weight: 600;
+        }
+        .collection-info {
+            padding: 24px 0;
+        }
+        .collection-info p {
+            font-size: 14px;
+            color: rgba(255, 255, 255, 0.6);
+            margin-bottom: 16px;
+        }
+        .timeline-item {
+            display: grid;
+            grid-template-columns: 150px 1fr;
+            gap: 40px;
+            padding-bottom: 40px;
+            margin-bottom: 40px;
+            border-bottom: 1px solid rgba(161,193,216,0.1);
+        }
+        .timeline-year {
+            font-family: 'Playfair Display', serif;
+            font-size: 32px;
+            font-weight: 700;
+            color: var(--gold);
+        }
+        .timeline-content p {
+            font-size: 14px;
+            color: rgba(255, 255, 255, 0.6);
+        }
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 1fr 1.4fr;
+            gap: 80px;
+        }
+        .benefits {
+            display: flex;
+            flex-direction: column;
+            gap: 24px;
+        }
+        .benefit {
+            display: flex;
+            gap: 20px;
+        }
+        .benefit-icon {
+            color: var(--blue);
+            margin-top: 6px;
+        }
+        .benefit h4 {
+            font-size: 12px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            margin-bottom: 4px;
+        }
+        .benefit p {
+            font-size: 12px;
+            color: rgba(255, 255, 255, 0.5);
+        }
+        .contact-form {
+            padding: 40px;
+            border: 1px solid rgba(161,193,216,0.2);
+            text-align: center;
+        }
+        .footer {
+            background: var(--charcoal);
+            padding: 60px 40px;
+            text-align: center;
+            border-top: 1px solid rgba(161,193,216,0.1);
+        }
+        .footer h3 {
+            font-size: 24px;
+            margin-bottom: 12px;
+        }
+        .footer p {
+            font-size: 13px;
+            color: rgba(255, 255, 255, 0.6);
+            margin-bottom: 20px;
+        }
+        .whatsapp-btn {
+            position: fixed;
+            bottom: 32px;
+            right: 32px;
+            width: 56px;
+            height: 56px;
+            border-radius: 50%;
+            background: #25D366;
+            border: none;
+            color: white;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 999;
+            box-shadow: 0 4px 24px rgba(37, 211, 102, 0.4);
+            transition: all 0.3s;
+        }
+        .whatsapp-btn:hover {
+            transform: scale(1.1);
+        }
+        @media (max-width: 639px) {
+            nav { padding: 12px 16px; }
+            nav .nav-links { display: none; }
+            .menu-toggle { display: flex; }
+            section { padding: 40px 16px; }
+            h2 { font-size: 28px; margin-bottom: 30px; }
+            .hero-content h1 { font-size: 36px; }
+            .hero-content h2 { font-size: 20px; }
+            .essence-grid, .contact-grid { grid-template-columns: 1fr; gap: 40px; }
+            .collections-grid { grid-template-columns: 1fr; gap: 20px; }
+            .collection-image { height: 300px; }
+            .whatsapp-btn { width: 48px; height: 48px; bottom: 20px; right: 20px; }
+        }
+        @media (min-width: 640px) and (max-width: 1023px) {
+            nav { padding: 16px 24px; }
+            .collections-grid { grid-template-columns: repeat(2, 1fr); }
+            section { padding: 60px 24px; }
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <div class="logo">△ DREAMER</div>
+        <div class="nav-links">
+            <button>Our Essence</button>
+            <button>Collections</button>
+            <button>Our Journey</button>
+            <button>Partner With Us</button>
+            <button class="btn-luxury">Apply for Access</button>
+        </div>
+        <button class="menu-toggle">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+    </nav>
+    <section class="hero">
+        <div class="hero-content">
+            <div class="section-label">
+                <span></span>
+                <span>Wholesale Portal — Miami, FL</span>
+            </div>
+            <h1>DREAMER</h1>
+            <h2>Dress Your Dreams.</h2>
+            <p>Exclusive wholesale collections for Miami's premier boutiques. Colombian craftsmanship, global vision.</p>
+            <div class="hero-buttons">
+                <button class="btn-luxury">Apply for Wholesale Access →</button>
+                <button class="btn-outline">View Collections</button>
+            </div>
+        </div>
+    </section>
+    <div class="marquee">
+        <div class="marquee-content">
+            <span>Miami Resort Wear • Urban Denim • Elevated Essentials • Colombian Heritage • B2B Wholesale • SS 2025 Collection •</span>
+            <span>Miami Resort Wear • Urban Denim • Elevated Essentials • Colombian Heritage • B2B Wholesale • SS 2025 Collection •</span>
+        </div>
+    </div>
+    <section>
+        <div class="section-label">
+            <span></span>
+            <span>01 — Our Essence</span>
+        </div>
+        <h2>Fashion Is More</h2>
+        <div class="essence-grid">
+            <div class="essence-image">✨</div>
+            <div>
+                <p style="font-size: 16px; line-height: 1.8; margin: 20px 0;">Than trends—it's a narrative of identity. At DREAMER, we craft pieces that tell your story. Born in Colombia's creative heartland, our collections blend heritage with contemporary vision, designed for the modern woman who refuses to compromise style for substance.</p>
+                <p style="font-size: 16px; line-height: 1.8; color: rgba(255,255,255,0.6);">Every stitch carries our commitment to quality. Every design reflects our passion for fashion that matters.</p>
+            </div>
+        </div>
+    </section>
+    <section>
+        <div class="section-label">
+            <span></span>
+            <span>02 — Collections</span>
+        </div>
+        <h2>Curated for Wholesalers</h2>
+        <div class="collections-grid">
+            <div class="collection-card">
+                <div class="collection-image">☀️</div>
+                <div class="collection-info">
+                    <h3>Miami Resort Wear</h3>
+                    <p>Sun-kissed luxury for the modern woman</p>
+                    <span style="font-size: 12px; color: rgba(161,193,216,0.7);">42 Styles</span>
+                </div>
+            </div>
+            <div class="collection-card">
+                <div class="collection-image">👖</div>
+                <div class="collection-info">
+                    <h3>Urban Denim</h3>
+                    <p>Precision-cut denim for every silhouette</p>
+                    <span style="font-size: 12px; color: rgba(161,193,216,0.7);">38 Styles</span>
+                </div>
+            </div>
+            <div class="collection-card">
+                <div class="collection-image">✨</div>
+                <div class="collection-info">
+                    <h3>Elevated Essentials</h3>
+                    <p>Timeless pieces that anchor every wardrobe</p>
+                    <span style="font-size: 12px; color: rgba(161,193,216,0.7);">55 Styles</span>
+                </div>
+            </div>
+        </div>
+        <div style="text-align: center; margin-top: 60px;">
+            <button class="btn-luxury">Request Full B2B Catalog Access</button>
+        </div>
+    </section>
+    <section>
+        <div class="section-label">
+            <span></span>
+            <span>03 — Our Journey</span>
+        </div>
+        <h2>Born in Colombia, Built for the World</h2>
+        <div class="timeline-item">
+            <div class="timeline-year">2017</div>
+            <div class="timeline-content">
+                <h3>Born in Colombia</h3>
+                <p>DREAMER is founded with a vision: high-quality casual fashion for authentic dreamers who refuse to compromise style for comfort.</p>
+            </div>
+        </div>
+        <div class="timeline-item">
+            <div class="timeline-year">2018</div>
+            <div class="timeline-content">
+                <h3>First Showroom</h3>
+                <p>Inauguration of the first DREAMER Showroom experience — a curated space where fashion meets lifestyle.</p>
+            </div>
+        </div>
+        <div class="timeline-item">
+            <div class="timeline-year">2024</div>
+            <div class="timeline-content">
+                <h3>Miami Expansion</h3>
+                <p>Bringing our Colombian heritage to Miami's B2B wholesale market. Partnering with premier boutiques to dress the world.</p>
+            </div>
+        </div>
+    </section>
+    <section class="dark">
+        <div class="section-label">
+            <span></span>
+            <span>04 — B2B Partnership</span>
+        </div>
+        <h2>Become a <span style="font-style: italic; color: var(--blue);">DREAMER Partner.</span></h2>
+        <div class="contact-grid">
+            <div class="benefits">
+                <p style="font-size: 14px; color: rgba(255,255,255,0.65); margin-bottom: 32px;">Join Miami's most exclusive wholesale network. Access competitive pricing, priority inventory, and dedicated account management for your boutique.</p>
+                <div class="benefit">
+                    <div class="benefit-icon">◆</div>
+                    <div>
+                        <h4>Exclusive Pricing</h4>
+                        <p>Wholesale rates up to 60% below retail</p>
+                    </div>
+                </div>
+                <div class="benefit">
+                    <div class="benefit-icon">◆</div>
+                    <div>
+                        <h4>Priority Access</h4>
+                        <p>First look at new collections before launch</p>
+                    </div>
+                </div>
+                <div class="benefit">
+                    <div class="benefit-icon">◆</div>
+                    <div>
+                        <h4>Dedicated Support</h4>
+                        <p>Personal account manager for your boutique</p>
+                    </div>
+                </div>
+                <div class="benefit">
+                    <div class="benefit-icon">◆</div>
+                    <div>
+                        <h4>Flexible MOQ</h4>
+                        <p>Minimum orders designed for boutique scale</p>
+                    </div>
+                </div>
+            </div>
+            <div class="contact-form">
+                <h3>Ready to Apply?</h3>
+                <p style="margin: 20px 0;">Fill out our quick application form and our wholesale team will review your boutique profile.</p>
+                <button class="btn-luxury">Start Your Application</button>
+                <p style="font-size: 12px; margin-top: 20px; color: rgba(255,255,255,0.4);">Typically reviewed within 24 hours</p>
+            </div>
+        </div>
+    </section>
+    <footer class="footer">
+        <h3>DREAMER</h3>
+        <p>Dress Your Dreams.</p>
+        <p style="font-size: 12px; color: rgba(255,255,255,0.4); margin: 20px 0;">© 2024-2026 DREAMER | Miami, FL | Colombian Heritage & Global Vision</p>
+    </footer>
+    <button class="whatsapp-btn" title="Contact via WhatsApp" onclick="window.open('https://wa.me/1305000000')">
+        <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z" />
+        </svg>
+    </button>
+</body>
+</html>
