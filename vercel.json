@@ -1,7 +1,4 @@
 {
-  "public": "public",
-  "cleanUrls": true,
-  "rewrites": [
-    { "source": "/(.*)", "destination": "/index.html" }
-  ]
+  "buildCommand": "echo 'Skipping build'",
+  "outputDirectory": "public"
 }
